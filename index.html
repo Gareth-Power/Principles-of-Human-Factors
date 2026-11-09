@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Principles of Human Factors</title>
+<meta name="description" content="Principles of Human Factors - a field guide by Dr Peter Gogalniceanu.">
+<!-- ?v= forces browsers to fetch a changed file: bump it with every change -->
+<link rel="stylesheet" href="css/guide.css?v=6">
+<!-- installable app (PWA): manifest, icons, sw.js -->
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Human Factors">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <button class="ibtn menu" id="menu-btn" type="button" aria-label="Open the index" aria-controls="side" aria-expanded="false">
+    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5.5h14M3 10h14M3 14.5h14"/></svg>
+  </button>
+  <a class="brand" href="#/welcome">
+    <span class="brand-text">Principles of Human Factors</span>
+  </a>
+  <button class="searchbox" id="search-btn" type="button" aria-haspopup="dialog">
+    <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4 4"/></svg>
+    <span class="sb-label">Search the guide</span>
+    <kbd>/</kbd>
+  </button>
+</header>
+
+<div class="shell">
+  <nav class="side" id="side" aria-label="Index"></nav>
+  <div class="scrim" id="scrim" hidden></div>
+  <main class="main" id="main" tabindex="-1">
+    <article class="page" id="page" aria-live="polite"></article>
+    <nav class="pager" id="pager" aria-label="Previous and next topic"></nav>
+  </main>
+</div>
+
+<!-- Search -->
+<div class="backdrop" id="search" hidden>
+  <div class="pop search-pop" role="dialog" aria-modal="true" aria-label="Search the guide">
+    <div class="search-head">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4 4"/></svg>
+      <input id="q" type="search" placeholder="Search topics, tools and the glossary" autocomplete="off" spellcheck="false" aria-controls="results">
+      <button class="sbtn primary" type="button" data-close>Close</button>
+    </div>
+    <div class="results" id="results" role="listbox" aria-label="Results"></div>
+    <div class="search-foot"><span><kbd>&uarr;</kbd><kbd>&darr;</kbd> to move</span><span><kbd>Enter</kbd> to open</span><span><kbd>Esc</kbd> to close</span></div>
+  </div>
+</div>
+
+<!-- Image viewer -->
+<div class="backdrop" id="viewer" hidden>
+  <div class="pop viewer-pop" role="dialog" aria-modal="true" aria-label="Image">
+    <button class="sbtn primary viewer-close" type="button" data-close>Close</button>
+    <img id="viewer-img" alt="">
+  </div>
+</div>
+
+<!-- Install screen: shown on first launch in a browser (js/install.js) -->
+<div class="install" id="install" role="dialog" aria-modal="true" aria-labelledby="in-title" hidden>
+  <div class="in-card">
+    <img class="in-logo" src="icons/logo.png" alt="" width="96" height="96">
+    <h1 id="in-title">Principles of Human Factors</h1>
+    <p class="in-sub">Install the guide as an app. It opens from your home screen and works without a signal.</p>
+    <ol class="in-steps" id="in-ios" hidden>
+      <li><span class="in-n">1</span><span>Tap <b>Share</b> <svg class="in-share" viewBox="0 0 20 20" aria-label="the Share icon"><path d="M10 2.5v10M6.5 6 10 2.5 13.5 6M6 9H5a1 1 0 0 0-1 1v6.5a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V10a1 1 0 0 0-1-1h-1"/></svg> in your browser's toolbar.</span></li>
+      <li><span class="in-n">2</span><span>Scroll down and choose <b>Add to Home Screen</b>.</span></li>
+      <li><span class="in-n">3</span><span>Tap <b>Add</b>. The guide appears on your home screen.</span></li>
+    </ol>
+    <p class="in-steps-one" id="in-manual" hidden>Open your browser's menu and choose <b>Install app</b> or <b>Add to Home screen</b>.</p>
+    <div class="in-btns">
+      <button class="sbtn primary big" id="in-go" type="button">Install the app</button>
+      <button class="sbtn big" id="in-web" type="button">Use in the browser</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/content.js?v=6"></script>
+<script src="js/app.js?v=6"></script>
+<script src="js/install.js?v=6"></script>
+</body>
+</html>
