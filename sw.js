@@ -1,7 +1,7 @@
 /* Offline support: keeps the whole guide (about 3.5 MB) on the device.
    Bump VERSION with every change (same number as the ?v= in index.html):
    a changed sw.js is what makes devices fetch the new files. */
-var VERSION = "7";
+var VERSION = "8";
 var CACHE = "hf-guide-v" + VERSION;
 // The page's own CSS/JS are saved under the exact ?v= address index.html
 // asks for, so a new page never gets an older version's scripts: until the

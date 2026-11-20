@@ -100,8 +100,10 @@ kbd{font:600 var(--t-xs)/1 inherit;font-family:inherit;color:var(--fg-2);backgro
 .ix-links a[aria-current="page"]{background:var(--accent);color:#fff}
 .ix-links svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 .ix-group{margin:0 0 12px}
+/* Group headers a step deeper than the tint the current page is highlighted
+   in, so a header never looks like a selected page (2026-11-20). */
 .ix-head{display:flex;align-items:center;gap:8px;height:34px;padding:0 12px;border-radius:var(--r);
-  background:var(--tint);color:var(--ink);font-size:var(--t-base);font-weight:700}
+  background:color-mix(in srgb,var(--ink) 18%,var(--tint));color:var(--ink);font-size:var(--t-base);font-weight:700}
 .ix-group ul{list-style:none;margin:6px 0 0;padding:0 0 0 14px}
 .ix-group li a{display:block;padding:7px 12px;border-radius:var(--r);color:var(--fg);font-size:var(--t-base);line-height:1.3}
 .ix-group li a:hover{background:var(--group);text-decoration:none}
