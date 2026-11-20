@@ -1,11 +1,15 @@
 /* Offline support: keeps the whole guide (about 3.5 MB) on the device.
    Bump VERSION with every change (same number as the ?v= in index.html):
    a changed sw.js is what makes devices fetch the new files. */
-var VERSION = "6";
+var VERSION = "7";
 var CACHE = "hf-guide-v" + VERSION;
+// The page's own CSS/JS are saved under the exact ?v= address index.html
+// asks for, so a new page never gets an older version's scripts: until the
+// new worker has saved them, those requests miss and go to the network.
+var V = "?v=" + VERSION;
 var FILES = [
   "./", "index.html", "manifest.webmanifest",
-  "css/guide.css", "js/content.js", "js/app.js", "js/install.js",
+  "css/guide.css" + V, "js/content.js" + V, "js/app.js" + V, "js/install.js" + V,
   "icons/icon-192.png", "icons/icon-512.png", "icons/icon-maskable-512.png",
   "icons/apple-touch-icon.png", "icons/favicon-32.png", "icons/logo.png"
 ];
@@ -30,6 +34,6 @@ self.addEventListener("fetch", function (e) {
     e.respondWith(fetch(req).catch(function () { return caches.match("index.html"); }));
     return;
   }
-  // everything else: the saved copy (ignoring ?v=), else the network
-  e.respondWith(caches.match(req, { ignoreSearch: true }).then(function (hit) { return hit || fetch(req); }));
+  // everything else: the saved copy of that exact address, else the network
+  e.respondWith(caches.match(req).then(function (hit) { return hit || fetch(req); }));
 });

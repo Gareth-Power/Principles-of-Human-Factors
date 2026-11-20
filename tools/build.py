@@ -5,6 +5,9 @@ import sys, re, json, html
 sys.stdout.reconfigure(encoding="utf-8")
 blocks_path, out_path, img_dir = sys.argv[1:4]
 B = {b['i']: b for b in json.load(open(blocks_path, encoding='utf-8')) if 'html' in b}
+import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from edits import apply as apply_edits
+apply_edits(B)  # deliberate wording changes (tools/edits.py)
 
 # id, index label, group, first block, end (exclusive), title block
 PAGES = [

@@ -238,14 +238,10 @@
   function openSearch() { open(search); q.select(); runSearch(); }
   $("#search-btn").addEventListener("click", openSearch);
 
+  // No keyboard shortcut to open search - the search box is the way in (2026-11-20).
   document.addEventListener("keydown", function (e) {
-    var typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName) || document.activeElement.isContentEditable;
     if (e.key === "Escape") {
       if (!search.hidden) close(search); else if (!viewer.hidden) close(viewer); else closeMenu();
-      return;
-    }
-    if (((e.key === "/" && !typing) || (e.key.toLowerCase() === "k" && (e.ctrlKey || e.metaKey))) && search.hidden) {
-      e.preventDefault(); openSearch();
     }
   });
 

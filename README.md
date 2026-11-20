@@ -5,7 +5,7 @@ An HTML field guide made from *Human-Factors-Field-Guide-for-review 3.docx*
 `index.html` in a browser (it works from a folder, a USB stick, an intranet
 or any static web host).
 
-- `index.html`, `css/guide.css`, `js/app.js` - the app (index, pages, Toolkits, glossary, search with `/`).
+- `index.html`, `css/guide.css`, `js/app.js` - the app (index, pages, Toolkits, glossary, search).
 - `js/content.js` - **generated** from the Word file. Don't edit it by hand.
 - `img/` - the document's own images, resized to web size (WebP).
 

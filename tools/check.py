@@ -2,6 +2,9 @@
 import sys, json, re, html
 sys.stdout.reconfigure(encoding='utf-8')
 blocks=[b for b in json.load(open(sys.argv[1],encoding='utf-8')) if 'text' in b]
+import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from edits import apply as apply_edits
+apply_edits({b['i']: b for b in blocks})  # the deliberate changes are expected
 js=open(sys.argv[2],encoding='utf-8').read()
 data=json.loads(js[js.index('{'):js.rstrip().rindex(';')])
 def text(h):
